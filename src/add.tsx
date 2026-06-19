@@ -11,7 +11,7 @@ export default function Add({ setAddMenu, loadImages }: AddProp) {
   const menuRef = useRef<HTMLDivElement>(null);
 
   function handlePreview(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target?.files[0];
+    const file = e.target?.files?.[0];
     if (!file) return;
     const img = new Image();
     const url = URL.createObjectURL(file);

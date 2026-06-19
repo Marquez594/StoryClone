@@ -154,14 +154,18 @@ function App() {
                   key={i}
                   className="flex-1 h-full bg-gray-700 rounded-md overflow-hidden"
                 >
-                  {i === index && (
-                    <div
-                      className="h-full bg-white"
-                      style={{ width: `${progress}%` }}
-                    />
-                  )}
+                  {index !== null && (
+                    <>
+                      {i === index && (
+                        <div
+                          className="h-full bg-white"
+                          style={{ width: `${progress}%` }}
+                        />
+                      )}
 
-                  {i < index && <div className="h-full w-full bg-white" />}
+                      {i < index && <div className="h-full w-full bg-white" />}
+                    </>
+                  )}
                 </div>
               ))}
             </div>
@@ -170,7 +174,9 @@ function App() {
               ref={imgRef}
               onClick={handleClick}
             >
-              <img src={images[index].image}></img>
+              {index !== null && images[index] && (
+                <img src={images[index].image} />
+              )}
             </div>
           </div>
         </div>
